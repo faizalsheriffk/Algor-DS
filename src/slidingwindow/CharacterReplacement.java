@@ -23,7 +23,7 @@ public class CharacterReplacement {
             return 0;
         }
 
-        int l =0, ans=0, maxFreq = 0, windowLen=0, count = 0;
+        int l=0, ans=0, maxFreq = 0, windowLen=0, count = 0;
 
         Map<Character,Integer> charCount = new HashMap<Character, Integer>();
 
