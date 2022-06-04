@@ -120,6 +120,9 @@ public class StringToIntegerATOI {
 
 
     public static void main(String[] args){
+        int s = (int)Math.ceil(11/5);
+
+        System.out.println(s);
         StringToIntegerATOI atoi =  new StringToIntegerATOI();
         System.out.println(atoi.myAtoi("20000000000000000000"));
     }
