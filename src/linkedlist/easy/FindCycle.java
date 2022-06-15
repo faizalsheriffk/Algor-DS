@@ -21,7 +21,7 @@ public class FindCycle {
         while(fast!=slow){
 
             if(fast == null || fast.next == null){
-                false;
+                return false;
             }
 
 
