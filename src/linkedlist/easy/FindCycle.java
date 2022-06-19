@@ -12,7 +12,7 @@ public class FindCycle {
         //following two pointer approach
 
         if(head == null){
-            return;
+            return false;
         }
 
         ListNode fast = head;
