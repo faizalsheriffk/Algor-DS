@@ -1,5 +1,7 @@
 package tree.easy;
 
+import tree.commonmodels.TreeNode;
+
 public class BalancedBinaryTree {
 
 

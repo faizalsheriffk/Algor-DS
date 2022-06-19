@@ -1,5 +1,7 @@
 package tree.easy;
 
+import tree.commonmodels.TreeNode;
+
 public class LCABsT {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
@@ -22,3 +24,4 @@ public class LCABsT {
         return cur;
     }
 }
+

@@ -1,5 +1,7 @@
 package tree.easy;
 
+import tree.commonmodels.TreeNode;
+
 public class SameTree {
 
         public boolean isSameTree(TreeNode p, TreeNode q) {

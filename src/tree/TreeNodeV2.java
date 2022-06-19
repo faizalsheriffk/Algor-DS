@@ -1,15 +1,15 @@
 package tree;
 
-public class TreeNode {
+public class TreeNodeV2 {
 
     private Integer val;
-    private TreeNode left;
-    private TreeNode right;
+    private TreeNodeV2 left;
+    private TreeNodeV2 right;
 
-    public TreeNode(){
+    public TreeNodeV2(){
 
     }
-    public TreeNode (Integer value){
+    public TreeNodeV2(Integer value){
         this.val = value;
     }
 
@@ -21,19 +21,19 @@ public class TreeNode {
         this.val = val;
     }
 
-    public TreeNode getLeft() {
+    public TreeNodeV2 getLeft() {
         return left;
     }
 
-    public void setLeft(TreeNode left) {
+    public void setLeft(TreeNodeV2 left) {
         this.left = left;
     }
 
-    public TreeNode getRight() {
+    public TreeNodeV2 getRight() {
         return right;
     }
 
-    public void setRight(TreeNode right) {
+    public void setRight(TreeNodeV2 right) {
         this.right = right;
     }
 }

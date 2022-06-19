@@ -3,23 +3,23 @@ package tree;
 public class BinaryTreee {
 
 
-    private TreeNode left;
+    private TreeNodeV2 left;
 
-    private TreeNode right;
+    private TreeNodeV2 right;
 
-    public TreeNode getLeft() {
+    public TreeNodeV2 getLeft() {
         return left;
     }
 
-    public void setLeft(TreeNode left) {
+    public void setLeft(TreeNodeV2 left) {
         this.left = left;
     }
 
-    public TreeNode getRight() {
+    public TreeNodeV2 getRight() {
         return right;
     }
 
-    public void setRight(TreeNode right) {
+    public void setRight(TreeNodeV2 right) {
         this.right = right;
     }
 }

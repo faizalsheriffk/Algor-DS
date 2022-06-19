@@ -1,5 +1,7 @@
 package tree.easy;
 
+import tree.commonmodels.TreeNode;
+
 /**
  * This is bit tricky pay attention
  */

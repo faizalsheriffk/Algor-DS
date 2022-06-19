@@ -3,8 +3,8 @@ package tree;
 public class MainClassTester {
 
 
-    private TreeNode node;
-    private TreeNode node2;
+    private TreeNodeV2 node;
+    private TreeNodeV2 node2;
     public static void main (String args[]){
         MainClassTester tester = new MainClassTester();
         int[] arr = {1,4,2,45,67,89,22,11, 9, 10, 11};
@@ -40,7 +40,7 @@ public class MainClassTester {
         System.out.println("Are they siblings"+tester.areSiblings(tester.node, 11, 89));
     }
 
-    private TreeNode populateBinaryTree(int[] arr) {
+    private TreeNodeV2 populateBinaryTree(int[] arr) {
         if(arr == null || arr.length == 0)
             return null;
 
@@ -60,9 +60,9 @@ public class MainClassTester {
     //       11         89
     //  9        11
   //      10
-    private void insertNode(TreeNode node, int n) {
+    private void insertNode(TreeNodeV2 node, int n) {
         if(node == null){ // set root
-            node = new TreeNode();
+            node = new TreeNodeV2();
             node.setVal(n);
             this.node = node; //set root
         }else{
@@ -70,7 +70,7 @@ public class MainClassTester {
                 if(node.getLeft()!=null)
                     insertNode(node.getLeft(), n);
                 else{
-                    TreeNode leftNode = new TreeNode(n);
+                    TreeNodeV2 leftNode = new TreeNodeV2(n);
                     node.setLeft(leftNode);
                     //insertNode(leftNode, n);
                 }
@@ -78,7 +78,7 @@ public class MainClassTester {
                 if(node.getRight()!=null)
                     insertNode(node.getRight(), n);
                 else{
-                    TreeNode rightNode = new TreeNode(n);
+                    TreeNodeV2 rightNode = new TreeNodeV2(n);
                     node.setRight(rightNode);
                 }
             }
@@ -87,7 +87,7 @@ public class MainClassTester {
 
 
     //bad code start
-    private TreeNode populateBinaryTree2(int[] arr) {
+    private TreeNodeV2 populateBinaryTree2(int[] arr) {
         if(arr == null || arr.length == 0)
             return null;
 
@@ -99,9 +99,9 @@ public class MainClassTester {
         return node2;
     }
 
-    private void insertNode2(TreeNode node, int n) {
+    private void insertNode2(TreeNodeV2 node, int n) {
         if(node == null){ // set root
-            node = new TreeNode();
+            node = new TreeNodeV2();
             node.setVal(n);
             this.node2 = node; //set root
         }else{
@@ -109,7 +109,7 @@ public class MainClassTester {
                 if(node.getLeft()!=null)
                     insertNode2(node.getLeft(), n);
                 else{
-                    TreeNode leftNode = new TreeNode(n);
+                    TreeNodeV2 leftNode = new TreeNodeV2(n);
                     node.setLeft(leftNode);
                     //insertNode(leftNode, n);
                 }
@@ -117,7 +117,7 @@ public class MainClassTester {
                 if(node.getRight()!=null)
                     insertNode2(node.getRight(), n);
                 else{
-                    TreeNode rightNode = new TreeNode(n);
+                    TreeNodeV2 rightNode = new TreeNodeV2(n);
                     node.setRight(rightNode);
                 }
             }
@@ -131,7 +131,7 @@ public class MainClassTester {
     //         22     67
     //       11         89
 
-    private boolean isPresent(TreeNode node, int tF){
+    private boolean isPresent(TreeNodeV2 node, int tF){
 
         if(node.getVal() == tF) {
             return true;
@@ -147,7 +147,7 @@ public class MainClassTester {
 
     }
 
-    private void visitInOrder(TreeNode node){
+    private void visitInOrder(TreeNodeV2 node){
         if(node == null){
             return;
         }
@@ -161,7 +161,7 @@ public class MainClassTester {
     }
 
 
-    private void visitPreOrder(TreeNode node){
+    private void visitPreOrder(TreeNodeV2 node){
         if(node == null){
             return;
         }
@@ -172,7 +172,7 @@ public class MainClassTester {
 
     }
 
-    private void visitPostOrder(TreeNode node){
+    private void visitPostOrder(TreeNodeV2 node){
         if(node == null){
             return;
         }
@@ -182,7 +182,7 @@ public class MainClassTester {
 
     }
 
-    public int height(TreeNode node){
+    public int height(TreeNodeV2 node){
         if(node == null || (node.getRight()==null && node.getLeft() == null)){
             return 0;
         }
@@ -190,7 +190,7 @@ public class MainClassTester {
         return 1+(height(node.getLeft())+height(node.getRight()));
     }
 
-    public int min(TreeNode node, boolean isBinarySearchTree){
+    public int min(TreeNodeV2 node, boolean isBinarySearchTree){
 
         if(node == null)
             throw new IllegalStateException();
@@ -202,13 +202,13 @@ public class MainClassTester {
         }
     }
 
-    private int minBST(TreeNode node){
+    private int minBST(TreeNodeV2 node){
         if(node !=null && node.getLeft()!=null)
             minBST(node.getLeft());
         return node.getVal();
     }
 
-    private int min(TreeNode node){
+    private int min(TreeNodeV2 node){
 
         if(node == null){
             return Integer.MAX_VALUE;
@@ -221,13 +221,13 @@ public class MainClassTester {
     }
 
 
-    public boolean isTreeEqual(TreeNode tree1, TreeNode tree2){
+    public boolean isTreeEqual(TreeNodeV2 tree1, TreeNodeV2 tree2){
 
         return isNodeEqual(tree1, tree2);
 
     }
 
-    public boolean isNodeEqual(TreeNode tree1, TreeNode tree2){
+    public boolean isNodeEqual(TreeNodeV2 tree1, TreeNodeV2 tree2){
 
                 if(tree1 == null && tree2 == null){
                     return true; //need to make sure if this is the right behavior
@@ -243,7 +243,7 @@ public class MainClassTester {
     }
 
 
-    public boolean isBST(TreeNode treeNode){
+    public boolean isBST(TreeNodeV2 treeNode){
         if(treeNode == null){
             return false;
         }
@@ -261,7 +261,7 @@ public class MainClassTester {
         }
     }
 
-    public void printValuesAtDistance(int distance, TreeNode node){
+    public void printValuesAtDistance(int distance, TreeNodeV2 node){
         if(distance<0 || node == null){
             throw new IllegalStateException();
         }
@@ -279,7 +279,7 @@ public class MainClassTester {
 
     }
 
-    public int size(TreeNode node){
+    public int size(TreeNodeV2 node){
         if(node == null){
             return 0;
         }
@@ -287,7 +287,7 @@ public class MainClassTester {
     }
 
 
-    public int countLeaves(TreeNode node){
+    public int countLeaves(TreeNodeV2 node){
         if(node == null){
             return 0;
         }
@@ -308,7 +308,7 @@ public class MainClassTester {
     //  9        11
     //      10
     
-    public boolean areSiblings(TreeNode node, int val1, int val2){
+    public boolean areSiblings(TreeNodeV2 node, int val1, int val2){
         if(node == null){
             return false; // throw e
         }
@@ -324,7 +324,7 @@ public class MainClassTester {
 
     }
 
-    private boolean isaBoolean(TreeNode node, int val1, int val2) {
+    private boolean isaBoolean(TreeNodeV2 node, int val1, int val2) {
         return (node.getLeft().getVal() == val1 && node.getRight().getVal() == val2)
                 || (node.getLeft().getVal() == val2 || node.getRight().getVal() == val1);
     }
