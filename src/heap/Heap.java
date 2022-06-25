@@ -29,7 +29,7 @@ public class Heap {
             throw new IllegalStateException("Size overflow exception");
         }
         items[size++] = n;
-        bubbleUp(n);
+        bubbleUp();
     }
 
     /**
@@ -61,7 +61,7 @@ public class Heap {
     }
 
 
-    private void bubbleUp(int n) {
+    private void bubbleUp() {
         var index = size - 1;
         var parentIndex = getParentIndex(index);
         while (index > 0 && items[parentIndex] < items[index]) {

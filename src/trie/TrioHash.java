@@ -47,6 +47,7 @@ public class TrioHash {
     private Node root = new Node(KEY);
     private Node current;
     private StringBuilder prefixBuilder = new StringBuilder();
+    private List<String> autoCompStringList = new ArrayList<String>();
 
 
 //     trie.insert("petty");
@@ -81,6 +82,60 @@ public class TrioHash {
       //  var node = root.children.get(deleteCharSet[0]);
         return delete(deleteCharSet, 0, root.children);
     }
+
+
+    public String[] autoComplete(String searchStr){
+
+        autoCompStringList.clear();
+        String[] emptyResultSet = new String[0];
+        if(searchStr == null || searchStr.length() == 0){
+            return emptyResultSet;
+        }
+        var index = 0;
+
+        Node prefixNode = collectPrefixNode(searchStr.toCharArray(), index, root.children);
+
+        if(prefixNode == null || prefixNode.children.isEmpty()){
+            return emptyResultSet;
+        }
+        List<String> autoCompletedString = new ArrayList<String>();
+        if(prefixNode.isLastChar){
+            autoCompletedString.add(prefixBuilder.toString());
+        }
+        collectAutoCompleteStrings(prefixBuilder.toString(), prefixNode);
+        if(autoCompletedString!=null && !autoCompletedString.isEmpty()){
+            String[] result = new String[autoCompletedString.size()];
+            result = autoCompletedString.toArray(result);
+            return result;
+        }
+        return emptyResultSet;
+    }
+
+
+    public boolean contains(String word) {
+
+        if(word == null)
+            return false;
+
+        current = root;
+
+        for (char ch : word.toCharArray()) {
+
+            if(current.hasChild(ch) && current.getChild(ch).value == ch){
+
+                current = current.getChild(ch);
+
+            }else
+                return false;
+        }
+        if (current.isLastChar)
+            return true;
+        else
+            return false;
+    }
+
+
+
 
     /**
      * There was an issue with how we sent the children node
@@ -122,31 +177,7 @@ public class TrioHash {
     }
 
 
-    public String[] autoComplete(String searchStr){
 
-        String[] emptyResultSet = new String[0];
-       if(searchStr == null || searchStr.length() == 0){
-           return emptyResultSet;
-       }
-       var index = 0;
-
-       Node prefixNode = collectPrefixNode(searchStr.toCharArray(), index, root.children);
-
-       if(prefixNode == null || prefixNode.children.isEmpty()){
-           return emptyResultSet;
-       }
-       List<String> autoCompletedString = new ArrayList<String>();
-       if(prefixNode.isLastChar){
-           autoCompletedString.add(prefixBuilder.toString());
-       }
-       autoCompletedString.addAll(collectAutoCompleteStrings(prefixBuilder.toString(), prefixNode));
-       if(autoCompletedString!=null && !autoCompletedString.isEmpty()){
-           String[] result = new String[autoCompletedString.size()];
-           result = autoCompletedString.toArray(result);
-           return result;
-       }
-        return emptyResultSet;
-    }
 
 
     private Node collectPrefixNode(char[] query, int index, HashMap<Character, Node> children){
@@ -177,7 +208,7 @@ public class TrioHash {
     //can yon
     private  List<String> collectAutoCompleteStrings(String prefixBldr, Node currentNode){
 
-        List<String> autoCompStringList = new ArrayList<String>();
+
         if(currentNode == null){
             return autoCompStringList;
         }
@@ -205,27 +236,7 @@ public class TrioHash {
     }
 
 
-    public boolean contains(String word) {
 
-        if(word == null)
-            return false;
-
-        current = root;
-
-        for (char ch : word.toCharArray()) {
-
-            if(current.hasChild(ch) && current.getChild(ch).value == ch){
-
-                current = current.getChild(ch);
-
-            }else
-                return false;
-        }
-        if (current.isLastChar)
-            return true;
-        else
-            return false;
-    }
 
 
 
