@@ -1,6 +1,7 @@
 package heap.simple;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.PriorityQueue;
 
 public class LastStoneWeight {
@@ -25,7 +26,13 @@ public class LastStoneWeight {
 
         }
 
+        HashMap map = new HashMap();
+        map.remove("c");
+
+
         return maxHeap.size()>0? maxHeap.peek():0;
+
+
 
     }
 }
