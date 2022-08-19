@@ -32,7 +32,5 @@ public class LastStoneWeight {
 
         return maxHeap.size()>0? maxHeap.peek():0;
 
-
-
     }
 }
