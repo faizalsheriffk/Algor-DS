@@ -1,4 +1,4 @@
-package dynamicprogramming;
+package dynamicprogramming.archive;
 
 public class TesterFibMain {
 

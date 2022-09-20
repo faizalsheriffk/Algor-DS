@@ -1,6 +1,5 @@
-package dynamicprogramming;
+package dynamicprogramming.archive;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class TesterMinCost {

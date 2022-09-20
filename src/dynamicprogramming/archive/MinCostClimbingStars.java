@@ -1,4 +1,4 @@
-package dynamicprogramming;
+package dynamicprogramming.archive;
 
 import java.util.HashMap;
 import java.util.Map;
